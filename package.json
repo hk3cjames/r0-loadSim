@@ -1,0 +1,24 @@
+{
+  "name": "r0-loadsim",
+  "version": "1.0.0",
+  "description": "load simulator to RBAS",
+  "main": "gen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hk3cjames/r0-loadSim.git"
+  },
+  "author": "james wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hk3cjames/r0-loadSim/issues"
+  },
+  "homepage": "https://github.com/hk3cjames/r0-loadSim#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  }
+}

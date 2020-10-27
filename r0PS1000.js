@@ -17,7 +17,7 @@ let k = 0;
 
 for (i = 0; i < 1000; i++) {
 	k = 1000 + i;
-	j = "" + k;
+	j = "RBAS.ps1000.ts" + k;
 	tsName[i] = j;
 	tsKey[i] = crypto.createHash("sha256").update(j).digest("hex");
 	tsIn[i] = " ";

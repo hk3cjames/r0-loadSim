@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Courier, monospace;
+            font-size: 12px;
+        }
+
+        .top1 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 450px;
+            gap: 1em;
+        }
+
+        .top1>div {
+            background-color: rgb(225, 239, 245);
+            padding: 5mm;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin: 1mm;
+        }
+
+        h2 {
+            text-align: left;
+            margin-left: 10mm;
+            font-size: 1.5em;
+        }
+
+        h3 {
+            font-size: 2em;
+            margin: 0mm;
+        }
+
+        h4 {
+            border: 1px solid rgb(168, 168, 168);
+            background-color: rgb(253, 251, 247);
+            font-weight: normal;
+            font-size: 3em;
+            text-align: center;
+            margin: 2em;
+            margin-top: 0em;
+            margin-bottom: 0em;
+         }
+
+         h5 {
+            border: 10px solid rgb(204, 204, 204);
+            background-color: rgb(253, 251, 247);
+            font-weight: normal;
+            font-size: 3em;
+            text-align: center;
+            margin: 4em;
+            margin-top: 0em;
+            margin-bottom: 0em;
+         }        
+    </style>
+    </style>
+</head>
+
+<body>
+    <div class="top1">
+        <div>
+            <h1>RBAS simulation</h1>
+            <h1>-</h1>
+            <h3>TS at 192.168.0.110</h3>
+            <h3>PS at 192.168.0.120</h3>
+            <h3>DB-C at 192.168.0.130</h3>
+            <h3>DB-T at 192.168.0.140</h3>
+            <h3>RS/dashboard at 192.168.0.150</h3>
+            <h3>QS at 192.168.0.160</h3>
+        </div>
+        <div>
+            <h1>TS</h1>           
+            <h3>1000 TS hash code for PS</h3>
+            <h3>-</h3>
+            <h2> tick </h2>
+            <h4> 1234567890 </h4>
+            <h2> count </h2>
+            <h4> 1234</h4>
+            <h2> on/off </h2>
+            <h5> off</h5>            
+        </div>
+        <div>
+            <h1>PS</h1>        
+            <h3>1000 PS hash code for DC-C</h3>
+            <h3>-</h3>
+            <h2> tick </h2>
+            <h4> 1234567890 </h4>
+            <h2> count </h2>
+            <h4> 1234</h4>
+            <h2> on/off </h2>
+            <h5> off</h5>      
+        </div>
+        <div>
+            <h1>QS</h1>        
+            <h3>1000 query for each DB-t</h3>
+            <h3>-</h3>
+            <h2> tick </h2>
+            <h4> 1234567890 </h4>
+            <h2> count </h2>
+            <h4> 1234</h4>
+            <h2> on/off </h2>
+            <h5> off</h5>      
+        </div>
+        <div>
+            <h1>DB-C</h1>        
+            <h3>9 DB-c summary json for RS</h3>
+            <h3>-</h3>
+            <h2> tick </h2>
+            <h4> 1234567890 </h4>
+            <h2> count </h2>
+            <h4> 1234</h4>
+            <h2> on/off </h2>
+            <h5> off</h5>          
+        </div>
+        <div>
+            <h1>DB-T</h1>        
+            <h3>9 DB-t summary json for RS</h3>
+            <h3>-</h3>
+            <h2> tick </h2>
+            <h4> 1234567890 </h4>
+            <h2> count </h2>
+            <h4> 1234</h4>
+            <h2> on/off </h2>
+            <h5> off</h5>      
+        </div>
+        <div>
+            <h1>DB-C to DB-T</h1>        
+            <h3>9 DB-c hash json for DB-t</h3>
+            <h3>-</h3>
+            <h2> tick </h2>
+            <h4> 1234567890 </h4>
+            <h2> count </h2>
+            <h4> 1234</h4>
+            <h2> on/off </h2>
+            <h5> off</h5>         
+        </div>
+        <div>
+            <h1>RS</h1>
+            <h3>9 RS json for dashbboard</h3>
+            <h3>-</h3>
+            <h2> tick </h2>
+            <h4> 1234567890 </h4>
+            <h2> count </h2>
+            <h4> 1234</h4>
+            <h2> on/off </h2>
+            <h5> off</h5>        
+        </div>
+    </div>        
+</body>
+</html>

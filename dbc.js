@@ -25,12 +25,12 @@ for (i = 0; i < 1000; i++) {
 }
 
 async function intervalFunc() {
-	for (i = 1; i < 1000; i++) {
+	for (i = 1    ; i < 1000; i++) {
 		tick = systemTick
 		psId = psName[i] 
 		chainId = linkHash[i]
 		// console.log(chainId)
-		psCycleCount = 197;
+		psCycleCount = 379;
 		hashToDBc = []
 		for (j=0; j<psCycleCount; j++){
 			tsName = "RBAS.ps" + i +".ts"+ j + ".tick" + systemTick
@@ -53,7 +53,8 @@ async function intervalFunc() {
 			},
 			body: JSON.stringify(data),
 		};
-		res1 = await fetch("http://127.0.0.1:3200/hashFile", options); //to DB_c
+		// res1 = await fetch("http://127.0.0.1:3200/hashFile", options); //to DB_c local host
+		res1 = await fetch("http://127.0.0.1:3200/hashFile", options); //to DB_c pi 4
 		const DBc1Replay = await res1.json();
 
 		// console.log(DBc1Replay);

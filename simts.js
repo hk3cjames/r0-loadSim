@@ -17,16 +17,16 @@ let k = 0;
 
 for (i = 0; i < 1000; i++) {
 	k = 1000 + i;
-	j = "RBAS.ps1000.ts" + k;
+	j = "ps1000.ts" + k;
 	tsName[i] = j;
 	tsKey[i] = crypto.createHash("sha256").update(j).digest("hex");
 	tsIn[i] = " ";
 }
 
 async function intervalFunc() {
-	last = "submitted"
+	last = "ps ready"
 	for (i = 1; i < 1000; i++) {
-		if (last == "submitted") {
+		if (last == "ps ready") {
 			tsId = tsName[i];
 			chainId = tsKey[i];
 			tsKey[i] = crypto.createHash("sha256").update(chainId).digest("hex");
@@ -48,4 +48,4 @@ async function intervalFunc() {
 	}
 }
 
-setInterval(intervalFunc, 1005);
+setInterval(intervalFunc, 1000);

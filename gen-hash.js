@@ -1,3 +1,4 @@
+// use fs to store hash file gen-hash.js
 const http = require("http");
 const fs = require("fs");
 const port = 3601;

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=, initial-scale=1.0"> -->
+    <link rel="shortcut icon" type="image/png" href="android-chrome-512x512.png">
+    <title>RBAS simulator</title>
+    <style>
+        * {
+            font-family: Courier, monospace;
+            font-size: 12px;
+        }
+
+        .top1 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1800px;
+            gap: 1em;
+        }
+
+        .top1>div {
+            background-color: rgb(225, 239, 245);
+            padding: 5mm;
+        }
+
+        .textview {
+            width: 80%;
+            border: 1px solid rgb(8, 3, 3);
+            background-color: rgb(253, 251, 247);
+            font-size: 3em;
+            padding: 2mm;
+            text-align: center;
+            margin: 5mm;
+            margin-left: 20mm;
+        }
+
+        h1 {
+            font-size: 5em;
+            margin: 10mm;
+        }
+
+        h2 {
+            font-size: 3em;
+            text-align: left;
+            margin: 1mm;
+            margin-left: 10mm;
+        }
+
+        h3 {
+            font-size: 4em;
+            margin: 10mm;
+            margin-bottom: 4mm;
+        }
+
+        h4 {
+            font-size: 3em;
+            border: 1px solid rgb(8, 3, 3);
+            text-align: center;
+            padding: 3mm;
+            margin: 2em;
+            margin-top: 1mm;
+            margin-bottom: 2mm;
+        }
+
+        h5 {
+            border: 1px solid rgb(8, 3, 3);
+            background-color: rgb(253, 251, 247);
+            font-size: 4em;
+            text-align: center;
+            margin: 4em;
+            margin-top: 0em;
+            margin-bottom: 0em;
+        }
+
+
+
+        .button {
+            border: 1px solid rgb(8, 3, 3);
+            background-color: rgb(253, 251, 247);
+            /* width: 40%; */
+            height: 50px;
+            width: 250px;
+            font-size: 3em;
+            margin: 2mm;            
+            margin-left:65%;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top1" >
+        <div>
+            <h1>RBAS simulator 10</h1>
+            <h3>time</h3>
+            <h4 id="time">1234</h4>    
+            <h3>hash submit cycle</h3>
+            <h4 id="cycle">--</h4>
+            <h3>PS at </h3>
+            <form name ="form1" > <input class="textview" id = "psIP" value ="192.168.0.110:3100" /> </form>
+            <input class="button" type="button" value=" set " onclick="setPS()" />
+            <h3>DB-C at</h3>
+            <form name ="form2" > <input class="textview" id ="dbcIP" value ="192.168.0.110:3200" /> </form>
+            <input class="button" type="button" value=" set " onclick="setDBC()" />
+            <h3>DB-T at</h3>
+            <form name ="form3" > <input class="textview" id ="dbtIP" value ="192.168.0.110:3300" /> </form>
+            <input class="button" type="button" value=" set " onclick="setDBT()" />
+            <h3> start hash code </h3>
+            <form name ="form4" > <input class="textview" id ="hashcode" value ="1234567890abcdef" /> </form>
+            <input class="button" type="button" value=" set " onclick="setStartCode()" />
+        </div>
+        <div>
+            <h1>TS</h1>
+            <h3>1000 TS hash code for PS</h3>
+            <h3>-</h3>
+            <h3> hast to be sent </h3>
+            <h4 id="tsHashTobeSent"> 1234</h4>
+            <h3> hash sent </h3>
+            <h4 id = "tsHasnSentTotal"> 1234</h4>
+            <h3> start hash code </h3>
+            <h4 id ="tsHashcode" >1234567890abcdef</h4>
+            <h3>-</h3>         
+            <h2> TS1001 send t-hash submit per second</h2>
+            <input class="button" type="button" value="send 1" onclick="tsSend1()" />
+            <input class="button" type="button" value="send 100" onclick="tsSend100()" />
+            <input class="button" type="button" value="send 10000" onclick="ts10000()" />
+            <input class="button" type="button" value="stop " onclick="tsStop()" />
+            <h3>-</h3>
+            <h2> TS1001-1999 each submit one per second</h2>
+            <input class="button" type="button" value="send 1" onclick="tsxSend1()" />
+             <input class="button" type="button" value="stop " onclick="tsStop()" />
+        </div>
+        <div>
+            <h1>PS</h1>
+            <h3>1000 PS hash code for DC-C</h3>
+            <h3>-</h3>
+            <h3> hash to be sent </h3>
+            <h4> 1234</h4>
+            <h3> hash sent</h3>
+            <h4> 1234</h4>
+            <h3> start hash code </h3>
+            <h4 id ="psHashcode" >1234567890abcdef</h4>
+            <h3>-</h3>         
+            <h2> PS1001 send t-hash submit per second</h2>
+            <input class="button" type="button" value="send 1" onclick="psSend1()" />
+            <input class="button" type="button" value="send 10" onclick="ps1001s10()" />
+            <input class="button" type="button" value="send 100" onclick="ps1001continue()" />
+            <input class="button" type="button" value="stop " onclick="ps1001stop()" />
+            <h3>-</h3>
+            <h2> PS1001-1999 each submit one per second</h2>
+            <input class="button" type="button" value="send 1" onclick="ps1s1()" />
+            <input class="button" type="button" value="stop " onclick="ps1stop()" />
+        </div>
+        <div>
+            <h1>QS</h1>
+            <h3>1000 query for each DB-t</h3>
+            <h3>-</h3>
+            <h3> total query </h3>
+            <h4> 1234</h4>
+            <h3> query success </h3>
+            <h4> 1234</h4>
+            <h3> start hash code </h3>
+            <h4 id ="qsHashcode" >1234567890abcdef</h4>
+            <h3>-</h3>         
+            <h2> qs101 query one per second</h2>
+            <input class="button" type="button" value="query 1" onclick="qsSend1()" />
+            <input class="button" type="button" value="query 10" onclick="qsSend10()" />
+            <input class="button" type="button" value="query 100" onclick="qsContinue()" />
+            <input class="button" type="button" value="stop " onclick="qsStop()" />
+            <h3>-</h3>
+            <h2> qs101-199 each query one per second</h2>
+            <input class="button" type="button" value="query 1" onclick="qsxSend1()" />
+            <input class="button" type="button" value="stop " onclick="qsxStop()" />
+        </div>
+    </div>
+    <script src="sim.js">
+    </script>
+</body>
+
+</html>
